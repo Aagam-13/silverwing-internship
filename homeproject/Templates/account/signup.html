@@ -1,0 +1,79 @@
+{% extends 'common.html' %}
+{% load static %}
+
+{% block title %} apparel || signup {% endblock %}
+
+{% block content %}
+     <!-- pages-title-start -->
+		<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Signup</h2>
+                            <p><a href="#">Home</a> | Signup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- login content section start -->
+		<div class="login-area" style="margin-bottom: 100px;margin-top: 100px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-push-3 col-xs-6">
+                        <div class="tb-login-form res">
+                            <h5 class="tb-title">Create a new account</h5>
+                                <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}" >
+                                {% csrf_token %}
+                                <p class="checkout-coupon top log a-an">
+                                    <label class="l-contact">
+                                        Username
+                                        <em>*</em>
+                                    </label>
+                                    <input id="login" type="text" name="username" placeholder="Username">
+                                </p>
+                                <p class="checkout-coupon top log a-an">
+                                    <label class="l-contact">
+                                        Email Address
+                                        <em>*</em>
+                                    </label>
+                                    <input id="email" name="email" placeholder="Email" type="email">
+                                </p>
+                                <p class="checkout-coupon top log a-an">
+                                    <label class="l-contact">
+                                        Password
+                                        <em>*</em>
+                                    </label>
+                                    <input id="password1" type="password" name="password1" placeholder="Password">
+                                </p>
+                                <p class="checkout-coupon top log a-an">
+                                    <label class="l-contact">
+                                        Confirm Password
+                                        <em>*</em>
+                                    </label>
+                                    <input id="password2" type="password" name="password2" placeholder="Password">
+                                </p>
+                                <div class=" row">
+                                    <div class="col-md-6">
+                                        {% if redirect_field_value %}
+                                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <p style="margin-bottom: 20px;">If you have account then <a href="{% url 'account_login' %}">login here...</a></p>
+                                <p class="login-submit5 ress">
+                                    <input value="signup" class="button-primary" type="submit">
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- login  content section end -->
+
+
+
+
+{% endblock %}	
